@@ -51,3 +51,13 @@ class FriProduct(BaseModel):
     name: str
     countryCode: str
     price: Price
+
+
+class CurrencyRate(BaseModel):
+    currencyCode: str
+    value: float
+
+
+class ExchangeRates(BaseModel):
+    baseCurrencyCode: str
+    rates: list[CurrencyRate]

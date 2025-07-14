@@ -2,7 +2,7 @@ import httpx
 
 from typing import Final
 
-from .models import CatalogResponse
+from .models import CatalogResponse, ExchangeRates
 from ..shared.decorators import retry_on_fail
 from ..shared.paths import SRC_PATH
 from ..shared.utils import sleep_for
@@ -42,10 +42,8 @@ class BbcpAPIClient:
         return res.json()
 
     @retry_on_fail()
-    def get_exchange_rates(self) -> dict:
-        res = self.client.get(
-            f"{self.base_url}/api/integration/v1.0/exchange-rates?baseCurrency=AED&currency=INR"
-        )
+    def get_exchange_rates(self) -> ExchangeRates:
+        res = self.client.get(f"{self.base_url}/api/integration/v1.0/exchange-rates")
 
         try:
             res.raise_for_status()
@@ -56,7 +54,7 @@ class BbcpAPIClient:
                 sleep_for(10)
             res.raise_for_status()
 
-        return res.json()
+        return ExchangeRates.model_validate(res.json())
 
     @retry_on_fail(max_retries=60, sleep_interval=60)
     def get_catalog(self) -> CatalogResponse:

@@ -460,24 +460,31 @@ class RowModel(ColSheetModel):
             COL_META: "I",
         },
     ] = None
-    PRICE: Annotated[
+    PRICE_USD: Annotated[
         str | None,
         {
             COL_META: "J",
             IS_UPDATE_META: True,
         },
     ] = None
-    CURRENCY: Annotated[
+    PRICE: Annotated[
         str | None,
         {
             COL_META: "K",
             IS_UPDATE_META: True,
         },
     ] = None
-    NOTE: Annotated[
+    CURRENCY: Annotated[
         str | None,
         {
             COL_META: "L",
+            IS_UPDATE_META: True,
+        },
+    ] = None
+    NOTE: Annotated[
+        str | None,
+        {
+            COL_META: "M",
             IS_UPDATE_META: True,
             IS_NOTE_META: True,
         },
@@ -485,25 +492,37 @@ class RowModel(ColSheetModel):
     FILL_IN: Annotated[
         str | None,
         {
-            COL_META: "M",
+            COL_META: "N",
         },
     ] = None
     ID_SHEET: Annotated[
         str | None,
         {
-            COL_META: "N",
+            COL_META: "O",
         },
     ] = None
     SHEET: Annotated[
         str | None,
         {
-            COL_META: "O",
+            COL_META: "P",
         },
     ] = None
-    CELL: Annotated[
+    RANGE_NOTE: Annotated[
         str | None,
         {
-            COL_META: "P",
+            COL_META: "Q",
+        },
+    ] = None
+    CODE: Annotated[
+        str | None,
+        {
+            COL_META: "R",
+        },
+    ] = None
+    RANGE_CODE: Annotated[
+        str | None,
+        {
+            COL_META: "S",
         },
     ] = None
 
