@@ -238,6 +238,7 @@ def batch_process(
         else:
             row_model.NOTE = f"{formated_datetime(datetime.now())} Không tìm thấy product với CODE_ID: {row_model.CODE_ID}"
             row_model.PRICE = ""
+            row_model.PRICE_USD = ""
             if row_model.FILL_IN == CheckType.RUN.value:
                 to_be_updated_row_models.append(row_model)
 
