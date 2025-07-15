@@ -16,7 +16,7 @@ from .sheet.utils import fri_a1_range_to_grid_range
 from app import logger, config
 
 
-RELAX_TIME_CELL: Final[str] = "Q2"
+RELAX_TIME_CELL: Final[str] = "T2"
 
 
 def to_product_dict(
