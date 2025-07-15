@@ -16,7 +16,8 @@ BBCP_BASE_URL: Final[str] = "https://api.bamboocardportal.com"
 class BbcpAPIClient:
     def __init__(self) -> None:
         self.client = httpx.Client(
-            auth=(config.BBCP_CLIENT_ID, config.BBCP_CLIENT_SECRET)
+            auth=(config.BBCP_CLIENT_ID, config.BBCP_CLIENT_SECRET),
+            timeout=60,
         )
         self.base_url = BBCP_BASE_URL
 
